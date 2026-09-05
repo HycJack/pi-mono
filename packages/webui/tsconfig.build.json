@@ -1,0 +1,23 @@
+{
+	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"outDir": "./dist",
+		"rootDir": "./src",
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"paths": {
+			"@earendil-works/pi-agent-core": ["../agent/dist/index.d.ts"],
+			"@earendil-works/pi-agent-core/node": ["../agent/dist/node.d.ts"],
+			"@earendil-works/pi-ai": ["../ai/dist/index.d.ts"],
+			"@earendil-works/pi-ai/*": ["../ai/dist/*.d.ts", "../ai/dist/providers/*.d.ts"],
+			"@earendil-works/pi-telemetry": ["../telemetry/dist/index.d.ts"],
+			"@earendil-works/pi-protocol": ["../protocol/dist/index.d.ts"],
+			"@earendil-works/pi-client": ["../client/dist/index.d.ts"],
+			"@earendil-works/pi-server": ["../server/dist/index.d.ts"],
+			"@earendil-works/chord": ["../chord/dist/index.d.ts"],
+			"@earendil-works/chord/context": ["../chord/dist/context/index.d.ts"]
+		}
+	},
+	"include": ["src/server/**/*.ts", "src/shared/**/*.ts"],
+	"exclude": ["node_modules", "dist", "**/*.d.ts", "src/**/*.d.ts"]
+}

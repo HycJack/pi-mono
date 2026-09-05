@@ -1,0 +1,62 @@
+{
+	"name": "@earendil-works/pi-webui",
+	"version": "0.84.4",
+	"description": "Multi-user web interface for the durable Pi agent harness",
+	"type": "module",
+	"main": "./dist/server/index.js",
+	"types": "./dist/server/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/server/index.d.ts",
+			"import": "./dist/server/index.js"
+		},
+		"./package.json": "./package.json"
+	},
+	"sideEffects": false,
+	"files": [
+		"dist",
+		"static",
+		"README.md",
+		"CHANGELOG.md"
+	],
+	"scripts": {
+		"clean": "shx rm -rf dist static/app.js",
+		"build": "tsgo -p tsconfig.build.json && node scripts/build-browser.mjs",
+		"test": "vitest --run",
+		"typecheck": "tsgo -p tsconfig.test.json && tsgo -p tsconfig.client.json",
+		"prepublishOnly": "npm run clean && npm run build"
+	},
+	"keywords": [
+		"pi",
+		"webui",
+		"agent",
+		"harness",
+		"websocket"
+	],
+	"author": "Earendil Works",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/earendil-works/pi.git",
+		"directory": "packages/webui"
+	},
+	"engines": {
+		"node": ">=22.19.0"
+	},
+	"dependencies": {
+		"@earendil-works/chord": "^0.84.4",
+		"@earendil-works/pi-agent-core": "^0.84.4",
+		"@earendil-works/pi-ai": "^0.84.4",
+		"@earendil-works/pi-client": "^0.84.4",
+		"@earendil-works/pi-protocol": "^0.84.4",
+		"@earendil-works/pi-server": "^0.84.4",
+		"marked": "18.0.5",
+		"ws": "8.21.0"
+	},
+	"devDependencies": {
+		"@types/ws": "8.18.1",
+		"esbuild": "0.28.1",
+		"shx": "0.4.0",
+		"vitest": "4.1.9"
+	}
+}

@@ -1,0 +1,24 @@
+{
+	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"noEmit": true,
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"types": ["node", "vitest"],
+		"paths": {
+			"@earendil-works/pi-agent-core": ["../agent/src/index.ts"],
+			"@earendil-works/pi-agent-core/node": ["../agent/src/node.ts"],
+			"@earendil-works/pi-ai": ["../ai/src/index.ts"],
+			"@earendil-works/pi-ai/*": ["../ai/src/*.ts", "../ai/src/providers/*.ts"],
+			"@earendil-works/pi-telemetry": ["../telemetry/src/index.ts"],
+			"@earendil-works/pi-protocol": ["../protocol/src/index.ts"],
+			"@earendil-works/pi-client": ["../client/src/index.ts"],
+			"@earendil-works/pi-server": ["../server/src/index.ts"],
+			"@earendil-works/pi-server/unix": ["../server/src/transports/unix/index.ts"],
+			"@earendil-works/chord": ["../chord/src/index.ts"],
+			"@earendil-works/chord/context": ["../chord/src/context/index.ts"],
+			"@earendil-works/chord/node": ["../chord/src/node.ts"]
+		}
+	},
+	"include": ["src/server/**/*.ts", "src/shared/**/*.ts", "test/**/*.ts"]
+}
